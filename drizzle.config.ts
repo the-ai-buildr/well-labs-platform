@@ -9,6 +9,32 @@ if (!process.env.DATABASE_URL) {
 }
 
 /**
+ * drizzle-kit introspection uses pg_get_constraintdef; on Supabase's transaction
+ * pooler (port 6543) that can return null and crash pull with `.replace` on
+ * undefined. Prefer session pooler (5432) or direct DB for kit only.
+ */
+function databaseUrlForDrizzleKit(): string {
+  const explicit =
+    process.env.DATABASE_URL_DRIZZLE ?? process.env.DATABASE_URL_DRIZZLE_KIT;
+  if (explicit) return explicit;
+
+  const url = process.env.DATABASE_URL;
+  try {
+    const parsed = new URL(url.replace(/^postgresql:/, "http:"));
+    if (
+      parsed.port === "6543" &&
+      parsed.hostname.includes("pooler.supabase.com")
+    ) {
+      parsed.port = "5432";
+      return `postgresql:${parsed.href.slice("http:".length)}`;
+    }
+  } catch {
+    /* use DATABASE_URL as-is */
+  }
+  return url;
+}
+
+/**
  * Drizzle is used for Studio (`pnpm db:studio`) and typed server queries.
  * `supabase/migrations` stays the source of truth for schema changes: after a
  * migration, run `pnpm db:pull` to refresh `drizzle/schema.ts`.
@@ -19,5 +45,5 @@ export default defineConfig({
   schema: "./drizzle/schema.ts",
   out: "./drizzle",
   schemaFilter: ["public"],
-  dbCredentials: { url: process.env.DATABASE_URL },
+  dbCredentials: { url: databaseUrlForDrizzleKit() },
 });
