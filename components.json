@@ -28,6 +28,7 @@
       "headers": {
         "Authorization": "Bearer ${SHADCNBLOCKS_API_KEY}"
       }
-    }
+    },
+    "@supabase": "https://supabase.com/ui/r/{name}.json"
   }
 }
