@@ -22,6 +22,12 @@
     "hooks": "@/hooks"
   },
   "registries": {
-    "@mapcn": "https://mapcn.dev/r/{name}.json"
+    "@mapcn": "https://mapcn.dev/r/{name}.json",
+    "@shadcnblocks": {
+      "url": "https://www.shadcnblocks.com/r/{style}/{name}",
+      "headers": {
+        "Authorization": "Bearer ${SHADCNBLOCKS_API_KEY}"
+      }
+    }
   }
 }

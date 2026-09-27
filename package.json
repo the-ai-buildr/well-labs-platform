@@ -1,7 +1,7 @@
 {
-  "name": "shadcnblocks-admin",
+  "name": "well-labs-platform",
   "version": "2.3.0",
-  "author": "Shadcnblocks.com",
+  "author": "Tyler Hunt <[EMAIL_ADDRESS]>",
   "private": true,
   "packageManager": "pnpm@10.26.0",
   "scripts": {
