@@ -6,7 +6,7 @@ import { cache } from "react";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
 /**
- * Data Access Layer: every server-side read goes through `src/server/data/*`
+ * Data Access Layer: every server-side read goes through `src/server/dal/*`
  * so authorization lives in one place. Wrapped in `cache` so multiple calls
  * in a single render share one round trip.
  */
