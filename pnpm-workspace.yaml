@@ -6,7 +6,9 @@ packages:
   - "."
 
 allowBuilds:
-  esbuild: set this to true or false
+  # Explicitly denied: esbuild ships its binary via @esbuild/<platform>
+  # optional deps, so its postinstall (a binary check) isn't needed.
+  esbuild: false
   msw: true
   sharp: true
   unrs-resolver: true
