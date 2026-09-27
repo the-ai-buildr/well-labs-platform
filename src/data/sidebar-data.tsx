@@ -42,10 +42,15 @@ import {
 } from "@/lib/ecommerce-edit-products";
 import { todoRoutes } from "@/lib/todo-routes";
 
+/**
+ * Sidebar navigation for all Shadcnblocks template sections.
+ * To hide a section or page from the UI, comment it out here.
+ * See TEMPLATE.md for the full map of routes → page files → components.
+ */
 export const sidebarData: SidebarData = {
   user: {
-    name: "ausrobdev",
-    email: "rob@shadcnblocks.com",
+    name: "Well Labs",
+    email: "team@welllabs.com",
     avatar: "/avatars/ausrobdev-avatar.png",
   },
   teams: [
@@ -57,17 +62,19 @@ export const sidebarData: SidebarData = {
       plan: site.plan,
     },
     {
-      name: "Northstar Ops",
+      name: "Well Labs Ops",
       logo: GalleryVerticalEnd,
       plan: "Enterprise",
     },
     {
-      name: "Meridian Labs.",
+      name: "Well Labs Studio",
       logo: AudioWaveform,
-      plan: "Startup",
+      plan: "Platform",
     },
   ],
   navGroups: [
+    // ── TEMPLATE: Ecommerce ──────────────────────────────────────────────
+    // Pages: src/app/(admin)/ecommerce/**  ·  UI: src/components/ecommerce/**
     {
       title: "Ecommerce",
       items: [
@@ -239,6 +246,8 @@ export const sidebarData: SidebarData = {
         },
       ],
     },
+    // ── TEMPLATE: Project Management ───────────────────────────────────
+    // Pages: src/app/(admin)/project-management/**  ·  UI: src/components/project-management/**
     {
       title: "Project Management",
       items: [
@@ -408,6 +417,8 @@ export const sidebarData: SidebarData = {
         },
       ],
     },
+    // ── TEMPLATE: Payment Processor ────────────────────────────────────
+    // Pages: src/app/(admin)/payment-processor/**  ·  UI: src/components/payment-processor/**
     {
       title: "Payment Processor",
       items: [
@@ -593,6 +604,8 @@ export const sidebarData: SidebarData = {
         },
       ],
     },
+    // ── TEMPLATE: Todo ─────────────────────────────────────────────────
+    // Pages: src/app/(admin)/todo/**  ·  UI: mostly colocated under that route
     {
       title: "Todo",
       items: [
@@ -627,6 +640,8 @@ export const sidebarData: SidebarData = {
         },
       ],
     },
+    // ── TEMPLATE: Original (kit baseline) ──────────────────────────────
+    // Pages: src/app/(admin)/original/**
     {
       title: "Original",
       items: [
@@ -696,6 +711,8 @@ export const sidebarData: SidebarData = {
         },
       ],
     },
+    // ── TEMPLATE: Developers ───────────────────────────────────────────
+    // Pages: src/app/(admin)/developers/**
     {
       title: "Developers",
       items: [
@@ -723,6 +740,8 @@ export const sidebarData: SidebarData = {
         },
       ],
     },
+    // ── TEMPLATE: Auth & Errors ────────────────────────────────────────
+    // Pages: src/app/(auth)/**  ·  src/app/(errors)/**
     {
       title: "Pages",
       items: [

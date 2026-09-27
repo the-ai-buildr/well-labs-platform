@@ -16,7 +16,6 @@
     "db:types": "supabase gen types typescript --linked --schema public > src/types/database.types.ts",
     "db:migration": "supabase migration new",
     "db:push": "supabase db push",
-    "db:studio": "drizzle-kit studio",
     "db:pull": "drizzle-kit pull"
   },
   "dependencies": {

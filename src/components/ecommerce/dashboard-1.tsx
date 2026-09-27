@@ -182,10 +182,10 @@ const palette = {
 
 const sidebarData: SidebarData = {
   logo: {
-    src: "/images/block/logos/shadcnblocks-logo.svg",
-    alt: "Acme Store",
-    title: "Acme Store",
-    description: "Ecommerce",
+    src: "/logo-black.svg",
+    alt: "Well Labs",
+    title: "Well Labs",
+    description: "Platform",
   },
   navGroups: [
     {
@@ -242,8 +242,8 @@ const sidebarData: SidebarData = {
     items: [{ label: "Settings", icon: Settings, href: "#" }],
   },
   user: {
-    name: "John Doe",
-    email: "john@acme.store",
+    name: "Well Labs",
+    email: "team@welllabs.com",
     avatar: "/images/block/avatar-1.webp",
   },
 };

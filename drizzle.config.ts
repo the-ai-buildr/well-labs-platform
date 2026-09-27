@@ -36,12 +36,14 @@ function databaseUrlForDrizzleKit(): string {
 }
 
 /**
- * Drizzle is used for Studio (`pnpm db:studio`) and typed server queries.
- * `supabase/migrations` stays the source of truth for schema changes: after a
- * migration, update `drizzle/schema.ts` to match. (`pnpm db:pull` emits a
+ * Drizzle ORM provides typed server queries (`src/db`). Schema changes live in
+ * `supabase/migrations` (source of truth). After a migration, update
+ * `drizzle/schema.ts` to match — `pnpm db:pull` can help, but it emits a
  * broken `users` reference for auth.users with schemaFilter ["public"], so
- * reconcile its output by hand rather than committing it as-is.)
- * Don't use `drizzle-kit push`/`migrate` — they'd bypass Supabase's history.
+ * reconcile its output by hand rather than committing it as-is.
+ *
+ * Use Supabase Studio (dashboard) for browsing data — Drizzle Studio is not
+ * used. Don't use `drizzle-kit push`/`migrate` — they'd bypass Supabase's history.
  */
 export default defineConfig({
   dialect: "postgresql",
